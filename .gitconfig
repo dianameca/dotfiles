@@ -1,7 +1,7 @@
 [user]
-	name = Diana Meca
-	email = dianameca@protonmail.com
-	signingkey = ABDD08369A8D41F0
+	name = "..."
+	email = "..."
+	signingkey = "..."
 [commit]
 	gpgsign = true
 	verbose = true
@@ -27,6 +27,14 @@
 [help]
 	autocorrect = 1
 [alias]
+	ca = commit --amend
+	co = checkout
+	ds = diff --staged
+	aall = add --all
+	au = add -u
+	ci = commit -v
+	h = !git head
+	head = !git l -1
 	# View abbreviated SHA, description, and history graph of the latest 10 commits
 	l = log --pretty=oneline -n 10 --graph --abbrev-commit
 	# View the current working tree status using the short format
@@ -51,12 +59,8 @@
 	aliases = config --get-regexp alias
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
-	# Credit an author on the latest commit.
-	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
-	# Remove the old tag with this name and tag the latest commit with it
-	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
 	# Find branches containing commit
 	fb = "!f() { git branch -a --contains $1; }; f"
 	# Find tags containing commit
@@ -93,9 +97,6 @@
 [diff "bin"]
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
-[merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
 [push]
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
