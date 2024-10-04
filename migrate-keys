@@ -1,0 +1,17 @@
+# m1
+gpg --list-secret-keys --keyid-format=long
+gpg -o ~/key.asc --export-secret-key <name>
+ls
+gpg --batch --export-secret-key <public_key> | ssh <ip_target_vm> gpg --batch --import
+
+# arm server
+gpg --version
+export GPG_TTY=$(tty)
+echo "test" | gpg --clearsign
+    -----BEGIN PGP SIGNED MESSAGE-----
+    Hash: ...
+
+    test
+    -----BEGIN PGP SIGNATURE-----
+    ...
+    -----END PGP SIGNATURE-----
