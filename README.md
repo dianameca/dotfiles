@@ -9,6 +9,7 @@ git clone https://github.com/dianameca/dotfiles.git
 Create a symlink to every dotfile needed
 ```
 ln -sf ~/dotfiles/<file> ~/<file>
+```
 
 User data should probably live in a local .gitconfig
 ```
