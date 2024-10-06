@@ -1,7 +1,6 @@
-[user]
-	name = "..."
-	email = "..."
-	signingkey = "..."
+[include]
+	# conditional is possible for multiple identities with [includeIf]
+	path = ~/.gitconfig_local
 [commit]
 	gpgsign = true
 	verbose = true
@@ -27,7 +26,8 @@
 [help]
 	autocorrect = 1
 [alias]
-	ca = commit --amend
+	r = reset
+	cam = commit --amend --no-edit
 	co = checkout
 	ds = diff --staged
 	aall = add --all
@@ -35,6 +35,7 @@
 	ci = commit -v
 	h = !git head
 	head = !git l -1
+	cemt = commit --allow-empty
 	# View abbreviated SHA, description, and history graph of the latest 10 commits
 	l = log --pretty=oneline -n 10 --graph --abbrev-commit
 	# View the current working tree status using the short format
