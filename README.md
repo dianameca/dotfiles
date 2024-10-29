@@ -13,8 +13,8 @@ ln -sf ~/dotfiles/<file> ~/<file>
 
 User data should probably live in a local .gitconfig
 ```
-touch ~/.gitconfig.local # put stuff here
-cat ~/.gitconfig.local
+touch ~/.gitconfig_local # put stuff here
+cat ~/.gitconfig_local
 [user]
     name = "..."
     email = "..."
