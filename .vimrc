@@ -31,15 +31,13 @@ nnoremap <C-q> :q<CR>
 
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
-"theme
 set t_Co=256
 
 "enable syntax highlighting
 syntax on
-set background=dark        " Choose 'dark' for dark backgrounds; use 'light' for light backgrounds
 set termguicolors          " Enable true color support
-set background=dark        " Set background to dark
 
+"theme
 colorscheme evening
 
 "high contrast color scheme settings
