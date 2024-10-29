@@ -1,6 +1,5 @@
 set nocompatible "disable vi compatibility mode
 set number "line numbers
-syntax on
 set ttyfast
 set showmode
 set showcmd
