@@ -1,137 +1,68 @@
-" Don't be vi compatible
-set nocompatible
-
-filetype off
+set nocompatible "disable vi compatibility mode
+set number "line numbers
 syntax on
-
-" For plugins to load correctly
-filetype plugin indent on
-
-" TODO: Pick a leader key
-" let mapleader = ","
-
-" Security
-set modelines=0
-
-" Show line numbers
-set number
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping (grr)
-set visualbell
-
-" Encoding
-set encoding=utf-8
-
-" Whitespace
-set wrap
-set textwidth=79
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set noshiftround
-
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
-
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
-
-" Allow hidden buffers
-set hidden
-
-" Rendering
 set ttyfast
-
-" Status bar
-set laststatus=2
-
-" Last line
 set showmode
 set showcmd
+set encoding=utf-8
+set showmatch "show matching parenthesis
+set incsearch "incremental search
+set ignorecase "ignore case in search
+set hlsearch "highlight all matches
+set smartcase "be case-sensitive if uppercase is searched
+set cursorline "highlight current line
+set colorcolumn=80 "show a vertical line at 80 chars
+set wrap "line wrap
+set ruler "display the cursor position in the status line
+set clipboard=unnamedplus "system clipboard support
+filetype plugin indent on
 
-" Searching
-nnoremap / /\v
-vnoremap / /\v
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set showmatch
-map <leader><space> :let @/=''<cr> " clear search
+"split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
+nnoremap <silent> <Space> :nohlsearch<CR> " 'Space' to toggle search highlight
 
-" Textmate holdouts
+"save and quit shortcuts
+nnoremap <C-s> :w<CR>
+nnoremap <C-q> :q<CR>
 
-" Formatting
-map <leader>q gqip
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
-
-" Color scheme (terminal)
-"set t_Co=256
-"set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
-
-
-"set number
-"set cursorline
-"set cursorcolumn
-"set shiftwidth=4
-"set tabstop=4
-"set expandtab
-"set nobackup
-"set scrolloff=10
-"set nowrap
-"set incsearch
-"set ignorecase
-"set smartcase
-"set showcmd
-"set showmode
-"set showmatch
-"set hlsearch
-"set history=100
-"set wildmenu
-"set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
-" PLUGINS -> :PlugInstall
-call plug#begin('~/.vim/plugged')
-  Plug 'dense-analysis/ale'
-  Plug 'preservim/nerdtree'
-call plug#end()
+"theme
+set t_Co=256
 
-" :colorscheme molokai
+"enable syntax highlighting
+syntax on
+set background=dark        " Choose 'dark' for dark backgrounds; use 'light' for light backgrounds
+set termguicolors          " Enable true color support
+set background=dark        " Set background to dark
 
-" MAPPINGS
+colorscheme evening
 
-" VIMSCRIPT
+"high contrast color scheme settings
+@REM highlight Normal       ctermfg=white    ctermbg=black     guifg=#ffffff guibg=#1e1e1e
+@REM highlight Comment      ctermfg=cyan     guifg=#00ffff
+@REM highlight Constant     ctermfg=yellow   guifg=#ffff00
+@REM highlight Identifier   ctermfg=green    guifg=#00ff00
+@REM highlight Statement    ctermfg=magenta  guifg=#ff00ff
+@REM highlight PreProc      ctermfg=blue     guifg=#0000ff
+@REM highlight Type         ctermfg=red      guifg=#ff0000
+@REM highlight Special      ctermfg=yellow   guifg=#ffff00
+@REM highlight Underlined   ctermfg=blue     guifg=#0000ff gui=underline
+@REM highlight Error        ctermfg=white    ctermbg=red       guifg=#ffffff guibg=#ff0000
+@REM highlight Todo         ctermfg=black    ctermbg=yellow    guifg=#000000 guibg=#ffff00
 
-" Code folding.
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
+@REM "visual aids
+@REM highlight CursorLine   ctermbg=darkgrey guibg=#303030
+@REM highlight LineNr       ctermfg=grey     guifg=#7f7f7f
+@REM highlight MatchParen   ctermfg=white    ctermbg=blue      guifg=#ffffff guibg=#0000ff
+@REM highlight Search       ctermfg=black    ctermbg=yellow    guifg=#000000 guibg=#ffff00
+@REM highlight Pmenu        ctermbg=grey     guibg=#333333
+@REM highlight PmenuSel     ctermbg=yellow   guibg=#444444
 
-" STATUS LINE
+if has("termguicolors")
+  set termguicolors
+endif
