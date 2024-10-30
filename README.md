@@ -6,14 +6,15 @@ cd ~
 git clone https://github.com/dianameca/dotfiles.git
 ```
 
-Create a symlink to every dotfile needed
+Run setup script
 ```
-ln -sf ~/dotfiles/<file> ~/<file>
+cd ~/dotfiles
+chmod +x setup.sh
+./setup.sh
 ```
 
-User data should probably live in a local .gitconfig
+Add git user data in a local .gitconfig
 ```
-touch ~/.gitconfig_local # put stuff here
 cat ~/.gitconfig_local
 [user]
     name = "..."
