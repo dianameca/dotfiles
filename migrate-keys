@@ -1,11 +1,14 @@
-# m1
+# source
 gpg --list-secret-keys --keyid-format=long
-gpg -o ~/key.asc --export-secret-key <name>
-ls
+gpg -o ~/key.asc --export-secret-key <name> 
 gpg --batch --export-secret-key <public_key> | ssh <ip_target_vm> gpg --batch --import
 
-# arm server
+# target
 gpg --version
+apt install net-tools
+ifconfig -a
+apt install openssh-client
+apt install openssh-server
 export GPG_TTY=$(tty)
 echo "test" | gpg --clearsign
     -----BEGIN PGP SIGNED MESSAGE-----
