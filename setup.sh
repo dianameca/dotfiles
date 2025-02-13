@@ -15,7 +15,7 @@ items=(
 
 # create symliks - interactive
 create_symlink() {
-    item=$1
+    item="$1"
     target="$HOME/$item"
 
     if [ -L "$target" ]; then
